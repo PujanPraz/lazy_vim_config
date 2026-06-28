@@ -8,10 +8,18 @@ return {
         },
       },
       cssls = {
-        filetypes = { "css", "scss", "less" },
+        settings = {
+          css = { validate = true },
+          scss = { validate = true },
+        },
       },
       emmet_ls = {
-        filetypes = { "css", "scss", "less", "jsx", "tsx" },
+        filetypes = {
+          "html",
+          "css",
+          "scss",
+          "less",
+        },
       },
     },
   },
