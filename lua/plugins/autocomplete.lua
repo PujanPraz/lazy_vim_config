@@ -1,22 +1,29 @@
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
-    {
-      "L3MON4D3/LuaSnip",
-      config = function()
-        require("luasnip.loaders.from_vscode").lazy_load({
-          paths = { vim.fn.stdpath("config") .. "/snippets" },
-        })
-      end,
-    },
+    "L3MON4D3/LuaSnip",
+    "saadparwaiz1/cmp_luasnip",
   },
   opts = function(_, opts)
     local cmp = require("cmp")
+
     opts.sources = cmp.config.sources({
       { name = "nvim_lsp", priority = 1000 },
       { name = "luasnip", priority = 750 },
       { name = "buffer", priority = 500 },
       { name = "path", priority = 250 },
+    })
+
+    -- use Ctrl+y to confirm instead of Enter
+    opts.mapping = vim.tbl_extend("force", opts.mapping or {}, {
+      ["<CR>"] = cmp.mapping(function(fallback)
+        if cmp.visible() and cmp.get_active_entry() then
+          cmp.confirm({ select = false })
+        else
+          fallback()
+        end
+      end),
+      ["<C-y>"] = cmp.mapping.confirm({ select = true }),
     })
   end,
 }
