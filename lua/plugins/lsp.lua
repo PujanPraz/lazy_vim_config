@@ -19,7 +19,26 @@ return {
           "css",
           "scss",
           "less",
+          "jsx",
+          "tsx",
+          "javascript",
+          "typescript",
+          "javascriptreact",
+          "typescriptreact",
         },
+      },
+      vtsls = {
+        settings = {
+          typescript = {
+            updateImportsOnFileMove = { enabled = "always" },
+          },
+          javascript = {
+            updateImportsOnFileMove = { enabled = "always" },
+          },
+        },
+      },
+      lua_ls = {
+        filetypes = { "lua" },
       },
     },
   },
