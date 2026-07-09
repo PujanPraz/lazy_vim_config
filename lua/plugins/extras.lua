@@ -1,17 +1,5 @@
 return {
   {
-    "mg979/vim-visual-multi",
-    branch = "master",
-    init = function()
-      vim.g.VM_mouse_mappings = 0
-      vim.g.VM_maps = {
-        ["Find Under"] = "<A-d>",
-        ["Find Subword Under"] = "<A-d>",
-        ["Add Cursor At Pos"] = "<C-LeftMouse>",
-      }
-    end,
-  },
-  {
     "windwp/nvim-ts-autotag",
     opts = {},
   },
@@ -34,6 +22,22 @@ return {
         defer_save = { "InsertLeave", "TextChanged" },
       },
       debounce_delay = 1000,
+    },
+  },
+  {
+    "smoka7/multicursors.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "smoka7/hydra.nvim",
+    },
+    opts = {},
+    cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern" },
+    keys = {
+      {
+        "<A-d>",
+        "<cmd>MCstart<cr>",
+        desc = "Multi cursor",
+      },
     },
   },
 }

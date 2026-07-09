@@ -14,7 +14,6 @@ return {
       { name = "path", priority = 250 },
     })
 
-    -- use Ctrl+y to confirm instead of Enter
     opts.mapping = vim.tbl_extend("force", opts.mapping or {}, {
       ["<CR>"] = cmp.mapping(function(fallback)
         if cmp.visible() and cmp.get_active_entry() then
@@ -23,7 +22,6 @@ return {
           fallback()
         end
       end),
-      ["<C-y>"] = cmp.mapping.confirm({ select = true }),
     })
   end,
 }
