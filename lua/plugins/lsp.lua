@@ -4,8 +4,9 @@ return {
     servers = {
       html = {
         init_options = {
-          provideFormatter = true,
+          provideFormatter = false,
         },
+        filetypes = { "html", "htmldjango" },
       },
       cssls = {
         settings = {
