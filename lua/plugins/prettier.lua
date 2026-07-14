@@ -2,8 +2,8 @@ return {
   "stevearc/conform.nvim",
   opts = {
     formatters_by_ft = {
-      html = { "prettier" },
-      htmldjango = { "prettier" },
+      html = { "djlint" },
+      htmldjango = { "djlint" }, -- djlint for django templates
       javascript = { "prettier" },
       javascriptreact = { "prettier" },
       typescript = { "prettier" },
@@ -11,13 +11,9 @@ return {
       css = { "prettier" },
       scss = { "prettier" },
       json = { "prettier" },
+      python = { "ruff_format" },
+      sql = { "sqlfmt" },
     },
-    format_on_save = function(bufnr)
-      local ft = vim.bo[bufnr].filetype
-      if ft == "html" or ft == "htmldjango" then
-        return nil
-      end
-      return { timeout_ms = 500, lsp_fallback = true }
-    end,
+    format_on_save = { timeout_ms = 500, lsp_fallback = true },
   },
 }
