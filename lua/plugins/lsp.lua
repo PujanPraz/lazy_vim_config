@@ -16,15 +16,12 @@ return {
       },
       emmet_ls = {
         filetypes = {
+          "html",
           "css",
           "scss",
           "less",
           "jsx",
-          "tsx",
-          "javascript",
-          "typescript",
           "javascriptreact",
-          "typescriptreact",
         },
       },
       vtsls = {
